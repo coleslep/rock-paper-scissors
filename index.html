@@ -3,112 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock, Paper, Scissors</title>
-    <script>
-    window.setTimeout(function() {
-
-        //RANDOMIZING COMPUTER SELECTION 
-        function computerPlay(){
-            let randomPlay = Math.floor(Math.random() * 3);
-            switch(randomPlay){
-                case 0:
-                return "rock"
-                break;
-                
-                case 1:
-                return "paper" 
-                break;
-
-                case 2:
-                return "scissors"
-                break;
-            }
-        }
-        
-        //PLAYER SELECTION
-        function playerPlay(){
-            let playerPrompt = prompt("Rock, Paper, or Scissors?").toLowerCase();
-
-            if(playerPrompt !== "rock" && playerPrompt !== "paper" && playerPrompt !== "scissors"){
-                alert("Hey! Enter either Rock, Paper, or Scissors");
-                playerPlay();
-            }else{
-                return playerPrompt;
-            }
-        }
-
-        //FINDING WINNER OF ROUND
-        function playRound(playerSelection, computerSelection){ 
-            let displayOutcome = console.log(`You selected ${playerSelection}. Computer selected ${computerSelection}`);
-
-            if(playerSelection === computerSelection){
-                displayOutcome;
-                console.log("It's a tie!");
-                return "tie"
-            }else if(
-                    playerSelection === "rock" && computerSelection === "scissors"
-                    || playerSelection === "paper" && computerSelection === "rock"
-                    || playerSelection === "scissors" && computerSelection === "paper"
-                    ){
-                     displayOutcome;
-                     console.log("You win!");
-                     playerScore++;
-                     return "win"   
-            }else{
-                displayOutcome;
-                console.log("You lose!");
-                computerScore++;
-                return "lose"
-            }
-        
-        }
-
-        //FINDING FINAL SCORE
-        //Note to self: this would work even if playerScore and computerScore parameters
-        //were different, like score1 and score2, because they are just place holder for the
-        //values (playerScore and computerScore) that were passed below where endOfGame is called
-        function endOfGame(playerScore, computerScore){
-                if(playerScore > computerScore){
-                    console.log("Congrats, you won the game!")
-                }else if(playerScore < computerScore){
-                    console.log("You got beat by a computer!")
-                }else{
-                    console.log("It's a tie, no one wins :( ")
-                }
-            }
-
-    let playerScore = 0;
-    let computerScore = 0;     
-        
-        //GAME LOOP
-        function game(){
-
-            for(let i = 1; i <= 5; i++){
-                const playerSelection = playerPlay();
-                const computerSelection = computerPlay();
-                let outcome = playRound(playerSelection, computerSelection)
-
-            console.log(`Your score is: ${playerScore} 
-Computer score is: ${computerScore}
-_______________________________________________`)
-                if(playerScore === 3 || computerScore ===3){
-                    return;
-                }
-            
-            }
-        }
-
-        //CALL TO START GAME
-        game()
-
-        //END OF ROUNDS - FINAL SCORE
-        endOfGame(playerScore, computerScore)
-
-    }, 300);
-
-    </script>
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/717ed07ef1.js" crossorigin="anonymous"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    
+    <title>Rock // Paper // Scissors</title>
 </head>
-<body>
-    <h1>Play Rock, Paper, Scissors in your console</h1>
+<body class="body">
+<h1>Rock // Paper // Scissors</h1>
+    <div class="container">
+        <div id="player-type">
+            <h2 id="user">Player</h2>
+            <h2 id="computer"> Computer</h2>
+        </div>
+        <div id="result-container">
+            <div id="player-choice"></div>
+            <div id="result"></div>
+            <div id="computer-choice"></div>
+        </div>
+        <div id=score-tracker>
+            <div class="player-score score">
+                <div class = "squares">
+                    <i class="fas fa-square player-square-1"></i>
+                    <i class="fas fa-square player-square-2"></i>
+                    <i class="fas fa-square player-square-3"></i>
+                    <i class="fas fa-square player-square-4"></i>
+                    <i class="fas fa-square player-square-5"></i>
+                </div>
+            </div>
+            
+            <div class="computer-score score">
+                <div class = "squares">
+                    <i class="fas fa-square computer-square-1"></i>
+                    <i class="fas fa-square computer-square-2"></i>
+                    <i class="fas fa-square computer-square-3"></i>
+                    <i class="fas fa-square computer-square-4"></i>
+                    <i class="fas fa-square computer-square-5"></i>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <div class="buttons back-border">
+        <img src="images/rockbutton.png" class="button" id="rock" alt="rock">
+        <img src="images/paperbutton.png" class="button" id="paper" alt="paper">
+        <img src="images/scissorsbutton.png" class ="button" id="scissors" alt="scissors">
+    </div>
+
+<script type="text/javascript" src="script.js"> </script> 
+
 </body>
+
 </html>

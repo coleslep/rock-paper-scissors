@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Exo', sans-serif;
+    font-style: italic;
+
+}
+
+
+body {
+    background-color: #5c8ebf;
+    background-image: url(images/cool-background.png)
+
+}
+
+h1 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 50px;
+    font-style: italic;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+}
+
+
+.container {
+    max-width: 600px;
+    min-width: 400px;
+    height: 350px;
+    margin: 0 auto;
+    background-color: rgba(54, 83, 112, 0.9);
+    border: 2px solid black;
+    /* border-radius: 10%; */
+    align-self: center;
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+}
+
+#player-type {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 15px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-weight: 500;
+}
+
+#result-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.choice-img {
+    width: 100px;
+}
+
+.winnerGlow {
+    filter: drop-shadow(3px 3px 10px #66DDFF)
+}
+
+#score-tracker {
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid black;
+    
+}
+
+.squares {
+    color: #808080;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+.score {
+    display: flex;
+}
+
+.fa-square {
+    padding: 3px;
+}
+
+.white-square {
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 800px;
+    min-width: 400px;
+    margin: 0 auto;
+    padding-top: 40px;
+    position: relative;
+}
+
+.button {
+    cursor: pointer;
+    width: 100px;
+    transition: all .1s ease-in-out; 
+}
+
+.button:hover {
+    transform: scale(1.1)
+}
+
+.button:active {
+    transform: scale(0.9)
+}
+
+.final-cont {
+    position:fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background:rgba(255,255,255,0.7);
+}
+
+.final-winner {
+    font-size: 30px;
+    font-weight: 500;
+    color: black;
+    text-transform: capitalize;
+    background-color: rgba(54, 83, 112, 1);
+    border: 2px solid black;
+    padding: 20px;
+    max-width: 650px;
+    min-width: 400px;
+    margin: 200px auto 20px auto;
+}
+
+.play-again {
+    display: block;
+    margin: auto;
+    padding: 15px 42px;
+    background: #474E51;
+    border: 2px solid black;
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    transition: all .1s ease-in-out; 
+    box-shadow: 5px 5px 5px #474E51;
+    border-radius: 5px;
+}
+
+.play-again:hover {
+    box-shadow: 3px 3px 3px #474E51;
+}
+
+.play-again:active {
+    box-shadow: 0 0 0;
+    outline: none;
+    
+}
