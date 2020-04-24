@@ -1,1 +1,7 @@
-A rock, paper, scissor game to be played in console
+# Rock, Paper, Scissors Game!
+A GUI created to play the classic game of rock, paper, scissors. 
+
+## Built With
+* HTML5
+* CSS3
+* JavaScript
