@@ -1,6 +1,5 @@
 //Variables for manipulation 
 const buttons = document.querySelectorAll(".button");
-
 const playerChoiceCont = document.querySelector("#player-choice");   
 const playerChoiceImg = document.createElement("img");
     playerChoiceImg.classList.add("choice-img");
@@ -17,31 +16,20 @@ const finalWinner = document.createElement("h1");
     finalWinner.classList.add("final-winner")
 const playAgain = document.createElement("button");
     playAgain.classList.add("play-again");
-    playAgain.addEventListener('click', () => {
-        window.location.reload()
-    });
+const playerSquare = document.querySelectorAll(".player-square")
+const computerSquare = document.querySelectorAll(".computer-square")
 
-const playerSquare1 = document.querySelector(".player-square-1");
-const playerSquare2 = document.querySelector(".player-square-2");
-const playerSquare3 = document.querySelector(".player-square-3");
-const playerSquare4 = document.querySelector(".player-square-4");
-const playerSquare5 = document.querySelector(".player-square-5");
-
-const computerSquare1 = document.querySelector(".computer-square-1");
-const computerSquare2= document.querySelector(".computer-square-2");
-const computerSquare3 = document.querySelector(".computer-square-3");
-const computerSquare4 = document.querySelector(".computer-square-4");
-const computerSquare5 = document.querySelector(".computer-square-5");
 
 let playerScore = 0;
 let computerScore = 0; 
 
+let playerIncrease = false;
+let computerIncrease = false;
 
 //LISTEN FOR CLICK TO START
 buttons.forEach((button) => {
     button.addEventListener('click', startRound);
 });
-
 
 //START ROUND 
 function startRound() {
@@ -106,56 +94,37 @@ function playRound(playerSelection, computerSelection){
         result.textContent = "You win!";
         playerChoiceImg.classList.add("winnerGlow");
         playerScore++;
+        playerIncrease = true;
         displayScore();
     
     }else{
         result.textContent = "You lose!";
         computerChoiceImg.classList.add("winnerGlow");
         computerScore++;
+        computerIncrease = true;
         displayScore();
         
     }
     resultCont.appendChild(result);
+    
+    if(computerScore === 5|| playerScore === 5){
+        endOfGame(playerScore, computerScore);
+    }
+
 }
 
 //SCORING
 function displayScore(){
-    switch(computerScore){
-        case 1:
-        computerSquare1.classList.add("white-square");
-        break;
-        case 2: 
-        computerSquare2.classList.add("white-square");
-        break;
-        case 3:
-        computerSquare3.classList.add("white-square");
-        break;
-        case 4:
-        computerSquare4.classList.add("white-square");
-        break;
-        case 5:
-        computerSquare5.classList.add("white-square");
-        break;
+    for(i = 0; i < playerScore; i++){
+        if(playerIncrease){
+        playerSquare[i].classList.add("white-square");
+        }
     }
-    switch(playerScore){
-        case 1:
-        playerSquare1.classList.add("white-square");
-        break;
-        case 2: 
-        playerSquare2.classList.add("white-square");
-        break;
-        case 3:
-        playerSquare3.classList.add("white-square");
-        break;
-        case 4:
-        playerSquare4.classList.add("white-square");
-        break;
-        case 5:
-        playerSquare5.classList.add("white-square");
-        break;
-    }
-    if(computerScore === 5|| playerScore === 5){
-        endOfGame(playerScore, computerScore);
+
+    for(i = 0; i < computerScore; i++){
+        if(computerIncrease){
+        computerSquare[i].classList.add("white-square");
+        }
     }
 }
     
@@ -173,4 +142,7 @@ function endOfGame(playerScore, computerScore){
         finalCont.appendChild(finalWinner);
         playAgain.textContent = "Play Again?";
         finalCont.appendChild(playAgain);
+        playAgain.addEventListener('click', () => {
+            window.location.reload()
+        });
     }
